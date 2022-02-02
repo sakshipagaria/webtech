@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <script type="text/javascript" src="clock.js"></script>
+        <style>
+            body{
+              background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIqsak-6NR6aRIdHQgLtKS2b1ThrMCDLazg&usqp=CAU");
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size:cover;
+              height:750px;
+              width:100%;
+            }
+            .Clock{
+                position: absolute;
+                color:rgb(63, 71, 94);
+                top:47%;
+                left:70%;
+                transform: translateX(-50%) translateY(30%);
+                font-size: 50px;
+                 font-family:'Courier New', Courier, monospace;
+                letter-spacing:6px;
+            }
+            .Tm{
+                position: absolute;
+               top:60%;
+               color:rgb(63, 71, 94);
+               left:69%;
+               font-size: 30px;
+               letter-spacing: 9px;
+               transform: translateX(-50%) translateY(30%);
+            }
+            h1{
+                top:37%;
+                color:rgb(63, 71, 94);
+                left:55%;
+                position: absolute;
+                font-family:'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>TIME & TIDE WAIT FOR  NONE!</h1>
+        <div id="DigitalClock" class="Clock"></div>
+        <div id="Current" class="Tm"></div>
+        <script>
+        function showTime()
+       {
+        var date=new Date();
+        var h=date.getHours();
+        var m=date.getMinutes();
+        var s=date.getSeconds();
+        var session="AM";
+    
+        if(h==0){
+            h=12;   //12hrs format
+        }
+        if(h>12){
+            h=h-12;  //format for 1 pm and not 13pm
+            session="PM";
+        }
+        /*if(h<10){
+            h="0"+h;     //double digit format
+        }
+        if(m<10){
+            m="0"+m;     //double digit format
+        }
+         if(s<10){
+            s="0"+s;     //double digit format
+        }*/
+        h=(h<10)?"0"+h:h;
+        m=(m<10)?"0"+m:m;
+        s=(s<10)?"0"+s:s;
+
+        document.getElementById("DigitalClock").innerHTML =h + ":" + m + ":" + s + "" + session;
+          setTimeout(showTime,1000);
+        }
+        showTime();
+
+      
+        function showDay()
+        {
+            var today=new Date();
+            var d=today.getDate();
+            var mon=today.getMonth()+1;
+            var y=today.getFullYear();
+
+            document.getElementById("Current").innerHTML = d + "/" + mon + "/" +y;
+            
+           /* if(mon>12){
+                mon=mon-12;  //for january
+            }
+            
+            if(d>31){
+               d=d-31;  
+            }*/
+            d=(d<10)?"0"+d:d;
+            mon=(mon<10)?"0"+mon:mon;
+           
+        }
+        showDay();
+       </script>
+    </body>
+</html>
