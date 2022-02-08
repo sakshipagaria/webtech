@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flex Panels</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Source+Serif+4&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <style>
+            html{
+                box-sizing:border-box;
+                background: #ffc600;
+                font-family:  'Amatic SC', cursive;
+                font-size: 20px;
+                font-weight: 200;
+            }
+            body{
+                margin:0;
+            }
+            *,*:before,*:after{
+                box-sizing: inherit;
+            }
+            .panels{
+                min-height:100vh;
+                overflow: hidden;
+                display:flex;
+                flex:1;  
+
+            }
+            .panel{
+                background: #6b0f96;
+                box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+                color:rgb(245, 241, 241);
+                text-align: center;
+                align-items:center;
+                transition:font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), 
+                    background 0.2s;
+                font-size:30px;
+                background-size: cover;
+                background-position: center;
+                flex:1;
+                justify-content: center;
+                align-items: center;
+                display:flex;
+                flex-direction: column;
+
+            }
+
+            .panel1{
+               background: url('https://media.istockphoto.com/photos/sun-shining-in-a-forest-picture-id901134626?k=20&m=901134626&s=170667a&w=0&h=7OWxJrNwbossaHUXaipP9RI0O7ob9ysaf-1JtHV25ro=');
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+            }
+
+            .panel2{
+               background: url('https://i.pinimg.com/originals/19/2b/5e/192b5ea67aa0dc0df792315d88406ab3.jpg');
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+            }
+            .panel3{
+               background: url('https://idsb.tmgrup.com.tr/ly/uploads/images/2021/07/09/127839.jpg');
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+            }
+            .panel4{
+               background: url('https://media.istockphoto.com/photos/foggy-morning-in-the-mountains-with-flying-birds-over-silhouettes-of-picture-id1127270095?k=20&m=1127270095&s=612x612&w=0&h=tpi1HuuZTpWmYnRmYFS17VU3kJIasX-GUvRG7WissYw=');
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+            }
+            .panel5{
+               background: url('https://media.gettyimages.com/photos/wave-crashing-in-ocean-with-blue-sky-picture-id1222094389?s=612x612');
+               background-position: center;
+               background-repeat: no-repeat;
+               background-size: cover;
+            }
+            .panel>*{
+                margin:0;
+                width:100%;
+                transition: transform 0.5s;
+                flex:1 0  auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .panel>*:first-child{
+                transform: translateY(-100%);
+            }
+            .panel.open-active>*:first-child{
+                transform: translateY(0);
+            }
+            .panel>*:last-child{
+                transform: translateY(100%);
+            }
+            .panel.open-active>*:last-child{
+                transform: translateY(0);
+            }
+
+            .panel p{
+                text-transform: uppercase;
+                text-shadow: 0 0 4px rgba(0 ,0,0,0.72), 0 0 14px rgba(0,0,0,0.45);
+                font-size: 2rem;
+            }
+
+            .panel p:nth-child(2){
+                font-size: 4rem;
+            }
+
+            .panel.open{
+                font-size: 40px;
+                flex:5;
+            }
+
+            .cta{
+                color:white;
+                text-decoration: none;
+            }
+        </style>
+
+        <div class="panels">
+            <div class="panel panel1">
+                <p>Hey</p>
+                <p>LET's</p>
+                <p>Dance</p>
+            </div>
+
+            <div class="panel panel2">
+                <p>Give</p>
+                <p>TAKE</p>
+                <p>Receive</p>
+            </div>
+
+            <div class="panel panel3">
+                <p>Experience</p>
+                <p>IT</p>
+                <p>today</p>
+            </div>
+
+            <div class="panel panel4">
+                <p>Give</p>
+                <p>ALL</p>
+                <p>You can</p>
+            </div>
+
+            <div class="panel panel5">
+                <p>Life </p>
+                <p>IN</p>
+                <p>Motion</p>
+            </div>
+        </div>
+
+        <script>
+            const panels =document.querySelectorAll('.panel');
+
+            function toggleOpen(){
+                console.log('Hello');
+                this.classList.toggle('open');
+            }
+             
+            function toggleActive(e){
+               console.log(e.propertyName);
+               if (e.propertyName.includes('flex')){
+                this.classList.toggle('open-active');
+               }
+            }
+            panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+            panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+        </script>
+    </body>
+</html>
