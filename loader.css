@@ -1,0 +1,54 @@
+body{
+    background-color:blanchedalmond;
+}
+.loader{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100px;
+    height:100px;
+}
+.loader span{
+    border:0;
+    margin:0;
+    width:40%;
+    height: 40%;
+    position: absolute;
+    border-radius:50%;
+    animation: spin 2s ease infinite;
+    transition:all 1s
+        cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.loader :first-child{
+    background:#259af3;
+    animation-delay:-1.5s;
+}
+.loader :nth-child(2){
+    background:#ddea25;
+    animation-delay:1s;
+}
+.loader :nth-child(3){
+    background:#d52445;
+    animation-delay: -0.5s;
+}
+.loader :last-child{
+    background:#20c554;
+}
+@keyframes spin{
+    0%{transform:translate(0) scale(0)}
+    25%{transform:translate(200%) scale(1.5)}
+    50%{transform:translate(200%,200%) scale(0)}
+    75%{transform:translate(0,200%) scale(1.5)}
+    100%{transform:translate(0) scale(0)}
+
+}
+h1{
+    font-style: italic;
+    font-size:medium;
+    color:rgb(14, 14, 13);
+    align-content: center;
+    position: absolute;
+    left:40%;
+    top:30%;
+}
