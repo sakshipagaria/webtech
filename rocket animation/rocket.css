@@ -1,0 +1,184 @@
+body{
+    background-image: linear-gradient(to left, #011030 ,#171361,rgb(31, 42, 105),#242438,rgb(0, 0, 0));
+    background-size: 200%;
+    animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+    0%{background-position: 0;}
+    25%{background-position: 50%;}
+    50%{background-position: 100%;}
+    75%{background-position: 50%;}
+    100%{background-position: 0%;}
+}
+    
+.container{
+    height:370px;
+    width:370px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+.moon{
+    background-color: rgb(1, 181, 242);
+    height:170px;
+    width:170px;
+    border-radius:50%;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position: absolute;
+    margin:auto;
+    overflow: hidden;
+}
+.crater{
+    background-color: rgb(12, 169, 237);
+    height:30px;
+    width:30px;
+    border-radius:50%;
+    position: relative;   
+}
+.crater:before{
+    content:'';
+    height:25px;
+    width:25px;
+    position: absolute;
+    border-radius:50%;
+    box-shadow: -5px 0 0 2px #0e91e2 ;
+    top:2px;
+    left:7px;
+}
+.crater1{
+    top:27px;
+    left:90px;
+    transform:scale(0.9) ;
+}
+.crater2{
+    bottom:14px;
+    left:50px;
+    transform:scale(0.6) ;
+}
+.crater3{
+    left:15px;
+    transform:scale(0.74) ;
+}
+.crater4{
+    top:31px;
+    left:107px;
+    transform:scale(1.18) ;
+}
+.crater5{
+    bottom:4px;
+    left:32px;
+    transform:scale(0.59) ;
+}
+.shadow{
+    height:170px;
+    width:170px;
+    border-radius: 50%;
+    /*transform:rotate(45deg);*/
+    bottom: 149.5px;
+    right:26px;
+    position: relative;
+    box-shadow: 21px 0 0 5px rgba(0, 0, 0, 0.132);
+}
+.eye{
+    height:12px;
+    width:12px;
+    background-color:rgb(0, 0, 0);
+    border-radius: 50%;
+    position: relative;
+}
+.eyel{
+    bottom:249px;
+    left:59px;
+}
+.eyer{
+    bottom:261px;
+    left:101px;
+}
+.mouth{
+    height:5px;
+    width:10px;
+    border:3px solid #161646;
+    position: relative;
+    bottom:255px;
+    left:79px;
+    border-top:none;
+    border-radius:0 0 10px 10px;
+}
+.blush{
+    height:10px;
+    width:10px;
+    background-color: #f95b73;
+    position:relative;
+    border-radius: 50%;
+}
+.blushl{
+    left:50px;
+    bottom:258px;
+}
+.blushr{
+    left:114px;
+    bottom:268px;
+}
+.orbit{
+    height:300px;
+    width:300px;
+    border-radius:50%;
+    position: absolute;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    animation: spin 5s infinite linear;
+} 
+@keyframes spin {
+    100%{transform:rotate(360deg);}
+}
+.rocket{
+    background-color: #dbded8;
+    height:50px;
+    width:25px;
+    border-radius:50% 50% 0 0;
+    position: relative;
+    left:-11px;
+    top:115px;
+}
+.rocket:before{
+    background-color: deepskyblue;
+    content: "";
+    height:20px;
+    width:55px;
+    position: absolute;
+    z-index:-1;
+    border-radius: 50% 50% 0 0;
+    right:-15px;
+    bottom:0;
+}
+.rocket:after{
+    position:absolute;
+    content:"";
+    background-color: deepskyblue;
+    height:4px;
+    width:15px;
+    border-radius: 0 0 2px 2px;
+    bottom:-4px;
+    left:4px;
+}
+.window{
+    height:10px;
+    width:10px;
+    background-color:#161646;
+    border:2px solid #b8d2ec;
+    border-radius: 50%;
+    position: relative;
+    top:17px;
+    left:5px;
+}
